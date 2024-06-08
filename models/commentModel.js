@@ -1,18 +1,17 @@
 const mongoose = require("mongoose");
 
-const replySchema = new mongoose.Schema(
+const commentSchema = new mongoose.Schema(
   {
     content: { type: String, required: true },
     score: { type: Number },
     username: { type: String, required: true },
     replies: { type: Array },
-    replyingTo: { type: String, required: true },
   },
   {
     timestamps: true,
   }
 );
 
-const replies = mongoose.model("reply", replySchema);
+const comments = mongoose.model("comments", commentSchema);
 
-module.exports = replies;
+module.exports = comments;
