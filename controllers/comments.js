@@ -15,7 +15,7 @@ const createComment = async (req, res) => {
     });
 
     if (COMMENT) {
-      return res.status(200).json({ message: "Comment created successfully" });
+      return res.status(200).json({ message: COMMENT });
     }
   } catch (error) {
     console.error(error);
@@ -27,7 +27,7 @@ const createComment = async (req, res) => {
 
 const getComments = async (req, res) => {
   try {
-    const COMMENTS = await comments.find();
+    const COMMENTS = await comments.find().sort({createdAt: -1});
 
     if (!COMMENTS) {
       return res
