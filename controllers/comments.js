@@ -27,7 +27,7 @@ const createComment = async (req, res) => {
 
 const getComments = async (req, res) => {
   try {
-    const COMMENTS = await comments.find().sort({createdAt: -1});
+    const COMMENTS = await comments.find();
 
     if (!COMMENTS) {
       return res
